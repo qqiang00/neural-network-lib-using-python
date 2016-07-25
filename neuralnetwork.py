@@ -123,8 +123,9 @@ class neuralnetwork:
         # clear matrix to zero for compute
         self._reset_dparameter_zeros()
         times = 0
-        index=start%sample_size
+        index=start
         while True:
+            index = index % sample_size
             self._forward(X[index])
             jcost += self._computejcostxy(self.outputlayer.active, Y[index])
             if backward == True:
